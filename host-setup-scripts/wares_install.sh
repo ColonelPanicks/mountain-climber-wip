@@ -4,7 +4,7 @@ DATE=$(date +%Y%m%d)
 
 UNDERWARE_VERSION="${UNDERWARE_VERSION:-0.4.0}"
 METALWARE_VERSION="${METALWARE_VERSION:-develop}"
-CLOUDWARE_VERSION="${CLOUDWARE_VERSION:-0.1.0.pre5}"
+CLOUDWARE_VERSION="${CLOUDWARE_VERSION:-2019.1.rc1}"
 ADMINWARE_VERSION="${ADMINWARE_VERSION:-2018.2.0}"
 USERWARE_VERSION="${USERWARE_VERSION:-feature/advanced-mode}"
 
@@ -35,8 +35,23 @@ function install_metalware() {
 }
 
 function install_cloudware() {
-  curl -sL https://raw.githubusercontent.com/alces-software/cloudware/master/scripts/bootstrap | alces_OS=el7 alces_SOURCE_BRANCH=$CLOUDWARE_VERSION /bin/bash
+  cd /opt/
+  git clone https://github.com/alces-software/cloudware
+  cd cloudware
+  git checkout $CLOUDWARE_VERSION
+  cat << EOF
+===============================================================
 
+There are still some additional things that require setting
+up in order to get full functionality:
+
+- Install a version of Ruby that supports Cloudware (most
+  likely using RVM)
+- Run 'bundle install' in /opt/cloudware/ to prepare the
+  program
+
+===============================================================
+EOF
 }
 
 function install_adminware() {
