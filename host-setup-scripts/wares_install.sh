@@ -4,7 +4,7 @@ DATE=$(date +%Y%m%d)
 
 UNDERWARE_VERSION="${UNDERWARE_VERSION:-0.4.0}"
 METALWARE_VERSION="${METALWARE_VERSION:-develop}"
-CLOUDWARE_VERSION="${CLOUDWARE_VERSION:-2019.1.0.rc1}"
+CLOUDWARE_VERSION="${CLOUDWARE_VERSION:-2019.1.0.rc2}"
 ADMINWARE_VERSION="${ADMINWARE_VERSION:-2018.2.0}"
 USERWARE_VERSION="${USERWARE_VERSION:-feature/advanced-mode}"
 
@@ -49,6 +49,9 @@ up in order to get full functionality:
   likely using RVM)
 - Run 'bundle install' in /opt/cloudware/ to prepare the
   program
+- Copy /opt/cloudware/etc/config.yml.example to
+  /opt/cloudware/etc/config.yml and populate with correct API
+  keys for your chosen cloud platforms
 
 ===============================================================
 EOF
