@@ -82,6 +82,8 @@ ipa hbacrule-add siteaccess --desc "Allow siteadmins access to site hosts"
 ipa hbacrule-add-service siteaccess --hbacsvcs sshd
 ipa hbacrule-add-user siteaccess --groups siteadmins
 ipa hbacrule-add-host siteaccess --hostgroups sitenodes
+ipa hbacrule-add-service useraccess --hbacsvcgroups=Sudo
+ipa hbacrule-add-service siteaccess --hbacsvcgroups=Sudo
 
 ipa sudorule-add --cmdcat=all Site
 ipa sudorule-add-user --groups=siteadmins Site
